@@ -4,8 +4,8 @@ import './index.scss'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-import { BrowserRouter } from "react-router-dom";
-import { CookiesProvider } from "react-cookie";
+import { BrowserRouter } from 'react-router-dom'
+import { CookiesProvider } from 'react-cookie'
 
 const theme = createTheme()
 

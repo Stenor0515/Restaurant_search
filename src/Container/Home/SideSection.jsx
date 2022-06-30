@@ -1,9 +1,19 @@
 import React from 'react'
-import { Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from '@mui/material'
+import {
+  Box,
+  Divider,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Toolbar,
+} from '@mui/material'
 import Bookmarks from '@mui/icons-material/Bookmarks'
-import HomeIcon from '@mui/icons-material/Home';
+import HomeIcon from '@mui/icons-material/Home'
 
-const drawerWidth = 240;
+const drawerWidth = 240
 
 export default function SideSection({ setStep }) {
   return (
@@ -12,13 +22,13 @@ export default function SideSection({ setStep }) {
       sx={{
         width: drawerWidth,
         flexShrink: 0,
-        [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box', backgroundColor: "transparent" },
+        [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box', backgroundColor: 'transparent' },
       }}
     >
       <Toolbar />
       <Box sx={{ overflow: 'auto' }}>
         <List>
-          <ListItem onClick={() => setStep(1)} >
+          <ListItem onClick={() => setStep(1)}>
             <ListItemButton>
               <ListItemIcon>
                 <HomeIcon />
@@ -27,7 +37,7 @@ export default function SideSection({ setStep }) {
             </ListItemButton>
           </ListItem>
           <Divider />
-          <ListItem onClick={() => setStep(2)} >
+          <ListItem onClick={() => setStep(2)}>
             <ListItemButton>
               <ListItemIcon>
                 <Bookmarks />
