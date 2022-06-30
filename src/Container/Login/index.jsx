@@ -3,8 +3,6 @@ import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
 import TextField from '@mui/material/TextField'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import Checkbox from '@mui/material/Checkbox'
 import Box from '@mui/material/Box'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Typography from '@mui/material/Typography'
@@ -33,13 +31,21 @@ export default function SignIn() {
           headers: { "Authorization": "Bearer keyfXgn8PL6pB3x32" }
         }
       )
-      result.data.records.map((item, index) => {
+      let set = false
+      // eslint-disable-next-line array-callback-return
+      await result.data.records.map((item, index) => {
         if (item.fields.username === name && item.fields.password === pwd) {
           setCookie('Name', data.get('name'), { path: '*' });
           setCookie('Password', data.get('password'), { path: '*' });
-          navigate("/")
+          set = true
         }
       })
+
+      if (set) {
+        navigate("/")
+      } else {
+        alert("Invalid username and password")
+      }
     } catch (error) {
       alert(error.message)
     }
@@ -90,7 +96,6 @@ export default function SignIn() {
             id="password"
             autoComplete="current-password"
           />
-          <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
           <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
             Sign In
           </Button>

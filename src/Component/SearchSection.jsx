@@ -5,7 +5,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import axios from 'axios';
 
 
-export default function SearchComponent() {
+export default function SearchComponent({ setRestaurantName }) {
   const [open, setOpen] = React.useState(false);
   const [options, setOptions] = React.useState([]);
   const loading = open && options.length === 0;
@@ -61,6 +61,7 @@ export default function SearchComponent() {
       getOptionLabel={(option) => option.Name}
       options={options}
       loading={loading}
+      onChange={(e) => { setRestaurantName(e.target.innerHTML) }}
       renderInput={(params) => (
         <TextField
           {...params}

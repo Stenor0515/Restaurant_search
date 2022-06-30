@@ -7,6 +7,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { Stack } from '@mui/material';
 import { useCookies } from 'react-cookie'
 import { useNavigate } from 'react-router-dom'
+import styled from 'styled-components';
 
 export default function TopBarSection() {
   const [cookies, setCookie, removeCookie] = useCookies(["user"])
@@ -18,6 +19,10 @@ export default function TopBarSection() {
     navigate('/login')
   }
 
+  const LogOut = styled(LogoutIcon)`
+      cursor: pointer;
+  `
+
   return (
     <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -27,7 +32,7 @@ export default function TopBarSection() {
             World of Restaurants
           </Typography>
         </Stack>
-        <LogoutIcon onClick={() => remove()} sx={{ fontSize: "200%", marginX: '10px' }} />
+        <LogOut onClick={() => remove()} sx={{ fontSize: "200%", marginX: '10px' }} className={{}} />
       </Toolbar>
     </AppBar>
   )
